@@ -4,8 +4,17 @@
     "target": "ES6",
     "module": "CommonJS",
     "outDir": "dist",
-    "composite": true
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@shared/*": ["../shared/*"]
+    }
   },
-  "include": ["src"],
+  "include": [
+    "src/**/*",
+    "../shared/**/*"
+  ],
   "exclude": ["node_modules", "dist"]
 }

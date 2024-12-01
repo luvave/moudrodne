@@ -22,7 +22,7 @@
   },
   "lint-staged": {
     "**/*.{ts,tsx,js,jsx,json}": [
-      "eslint",
+      "eslint --fix",
       "prettier --check --cache --write"
     ]
   },

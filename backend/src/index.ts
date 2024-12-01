@@ -1,11 +1,13 @@
 import express from 'express';
+import { json } from 'body-parser';
+import routes from './routes';
 
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Hello from Backend (Node App)!');
-});
+app.use(json());
+app.use('/api', routes);
 
-app.listen(8001, () => {
-  console.log('Backend is running on http://localhost:8001');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });

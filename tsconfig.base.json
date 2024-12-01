@@ -5,11 +5,17 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "baseUrl": ".",
+    "rootDir": ".",
+    "outDir": "./dist",
     "paths": {
       "*": ["*"],
       "@shared/*": ["shared/*"]
     }
   },
   "references": [{ "path": "./backend" }, { "path": "./frontend" }, { "path": "./shared" }],
-  "include": ["frontend/**/*", "backend/**/*", "shared/**/*"]
+  "include": [
+    "frontend/**/*",
+    "backend/**/*",
+    "shared/**/*"
+  ]
 }
