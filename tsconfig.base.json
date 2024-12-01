@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": ["*"],
+      "@shared/*": ["shared/*"]
+    }
+  },
+  "references": [{ "path": "./backend" }, { "path": "./frontend" }, { "path": "./shared" }],
+  "include": ["frontend/**/*", "backend/**/*", "shared/**/*"]
+}
