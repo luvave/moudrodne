@@ -10,7 +10,7 @@ router.post('/auth/register', postRegister);
 router.post('/auth/login', postLogin);
 
 router.use(errorHandler);
-router.get('/quotes', getSaying);
-router.post('/quotes', authMiddleware, postSaying);
+router.get('/saying', getSaying);
+router.post('/saying', authMiddleware, postSaying);
 
 export default router;

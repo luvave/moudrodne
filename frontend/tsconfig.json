@@ -6,8 +6,12 @@
     "jsx": "react-jsx",
     "outDir": "dist",
     "moduleResolution": "node",
-    "composite": true
+    "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      "@shared/*": ["../shared/*"]
+    }
   },
-  "include": ["src"],
+  "include": ["src/**/*", "../shared/**/*"],
   "exclude": ["node_modules", "dist"]
 }

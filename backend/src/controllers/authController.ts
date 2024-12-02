@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import 'tsconfig-paths/register';
 import { login, register } from '../services/authService';
 import { UserCreate, UserLogin } from '@shared/types';
 import { LoginSchema, RegisterSchema } from '@shared/schemas';
