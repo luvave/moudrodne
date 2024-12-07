@@ -1,0 +1,9 @@
+{
+  "extends": "@moudrodne/typescript-config/src/react.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "moduleResolution": "bundler"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}

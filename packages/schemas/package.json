@@ -1,0 +1,17 @@
+{
+  "name": "@moudrodne/schemas",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "check-types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@moudrodne/typescript-config": "*",
+    "@moudrodne/types": "*",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  }
+}

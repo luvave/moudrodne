@@ -1,0 +1,31 @@
+{
+  "name": "@moudrodne/backend",
+  "version": "0.0.1",
+  "description": "Backend of MoudroDne",
+  "author": "luvave",
+  "main": "src/index.ts",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "check-types": "tsc --noEmit",
+    "build": "esbuild src/index.ts --bundle --platform=node --outfile=dist/index.js --external:express --external:cors",
+    "lint": "eslint .",
+    "vercel-build": "yarn build"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "@moudrodne/eslint-config": "*",
+    "@moudrodne/typescript-config": "*",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.1",
+    "tsx": "^4.19.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.7.2"
+  }
+}
