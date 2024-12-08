@@ -18,6 +18,5 @@ export const prettierConfig = {
   requirePragma: false,
   singleAttributePerLine: true,
   proseWrap: "always",
-  jsxBracketSameLine: true,
   endOfLine: "auto",
 };
