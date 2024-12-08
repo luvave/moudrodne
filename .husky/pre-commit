@@ -1,30 +1,7 @@
 #!/bin/sh
 
-# Define log file
-LOG_FILE=".husky_pre_commit.log"
-
-# Clear previous log file (optional)
-> "$LOG_FILE"
-
-# Log function to append messages to the log file
-log_message() {
-  echo "$(date): $1" >> "$LOG_FILE"
-}
-
-# Log that the script has started
-log_message "Starting pre-commit hook"
-
 # Get the list of changed files
 changed_files=$(git diff --cached --name-only --diff-filter=ACM)
-
-# Log the changed files
-log_message "Changed files: $changed_files"
-
-# If there are no changed files, log and exit early
-if [ -z "$changed_files" ]; then
-  log_message "No files have been changed."
-  exit 0
-fi
 
 # Check if any changed files match apps/frontend/*.{js,ts,jsx,tsx}
 frontend_files=""
@@ -34,19 +11,11 @@ while IFS= read -r file; do
   fi
 done <<< "$changed_files"
 
-# Log the frontend files detected
-log_message "Frontend files detected: $frontend_files"
-
 if [ -n "$frontend_files" ]; then
-  log_message "Frontend files detected, running frontend linting"
   # Run lint for frontend files
   yarn lint --filter=@moudrodne/frontend >> "$LOG_FILE" 2>&1
-  if [ $? -ne 0 ]; then
-    log_message "Frontend linting failed, but continuing"
-  fi
 fi
 
-# Check if any changed files match apps/backend/*.{js,ts,jsx,tsx}
 backend_files=""
 while IFS= read -r file; do
   if echo "$file" | grep -Eq '^apps/backend/.*\.(js|ts|jsx|tsx)$'; then
@@ -54,26 +23,9 @@ while IFS= read -r file; do
   fi
 done <<< "$changed_files"
 
-# Log the backend files detected
-log_message "Backend files detected: $backend_files"
-
 if [ -n "$backend_files" ]; then
-  log_message "Backend files detected, running backend linting"
-  # Run lint for backend files
   yarn lint --filter=@moudrodne/backend >> "$LOG_FILE" 2>&1
-  if [ $? -ne 0 ]; then
-    log_message "Backend linting failed, but continuing"
-  fi
-
-  # Run build:backend if there are any backend-related changes
   yarn build:backend >> "$LOG_FILE" 2>&1
-  if [ $? -ne 0 ]; then
-    log_message "Backend build failed, but continuing"
-  fi
 fi
 
-# Add all changes after running lint and build steps
 git add .
-
-# Log that the script has finished
-log_message "Pre-commit hook completed"
