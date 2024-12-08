@@ -1,16 +1,1 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-# Get list of changed files
-changed_files=$(git diff --cached --name-only)
-
-# Check if files match specific patterns and run commands
-if echo "$changed_files" | grep -qE "**/*\.(js|ts|jsx|tsx)"; then
-  echo "Running lint for JS/TS files..."
-  yarn lint
-fi
-
-if echo "$changed_files" | grep -qE "apps/backend/.*\.(js|ts|jsx|tsx)"; then
-  echo "Running build:backend for backend changes..."
-  yarn build:backend
-fi
+prettier $(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g') --write --ignore-unknown
