@@ -9,7 +9,6 @@
     "dev:frontend": "turbo dev --filter=@moudrodne/frontend",
     "build:frontend": "turbo build --filter=@moudrodne/frontend",
     "lint": "turbo lint",
-    "prepare": "husky",
     "format": "prettier --write \"**/*.{mjs,js,ts,tsx,md}\""
   },
   "devDependencies": {
