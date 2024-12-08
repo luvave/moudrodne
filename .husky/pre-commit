@@ -1,5 +1,6 @@
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+
+git add .
 
 # Check for changes in the backend folder with specific file extensions
 changed_files=$(git diff --cached --name-only | grep -E '^apps/backend/.*\.(js|ts|jsx|tsx)$')
