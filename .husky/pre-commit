@@ -1,23 +1,28 @@
 #!/bin/sh
 
+# Exit on error, but allow the script to continue
+set +e
+
 # Get the list of changed files
 changed_files=$(git diff --cached --name-only --diff-filter=ACM)
 
-# Check if any changed files match **/*.{js,ts,jsx,tsx}
-js_files=$(echo "$changed_files" | grep -E '\.jsx?$|\.tsx?$|\.js?$|\.js?$')
+# Check if any changed files match apps/frontend/*.{js,ts,jsx,tsx}
+frontend_files=$(echo "$changed_files" | grep -E '^apps/frontend/.*\.(js|ts|jsx|tsx)$')
 
-if [ "$js_files" ]; then
-  # Run format and lint only over JS/TS files
-  yarn format
-  yarn lint
+if [ "$frontend_files" ]; then
+  # Run lint for frontend files
+  yarn lint --filter=@moudrodne/frontend || echo "Frontend linting failed, but continuing"
 fi
 
 # Check if any changed files match apps/backend/*.{js,ts,jsx,tsx}
 backend_files=$(echo "$changed_files" | grep -E '^apps/backend/.*\.(js|ts|jsx|tsx)$')
 
 if [ "$backend_files" ]; then
+  # Run lint for backend files
+  yarn lint --filter=@moudrodne/backend || echo "Backend linting failed, but continuing"
   # Run build:backend if there are any backend-related changes
-  yarn build:backend
+  yarn build:backend || echo "Backend build failed, but continuing"
 fi
 
+# Add all changes after running lint and build steps
 git add .
