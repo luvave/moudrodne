@@ -10,7 +10,8 @@ export const Button = ({ children, className, onClick }: ButtonProps) => {
   return (
     <button
       onClick={onClick}
-      className={className}>
+      className={className}
+    >
       {children}
     </button>
   );

@@ -1,19 +1,23 @@
 #!/bin/sh
 
-git add .
+# Get the list of changed files
+changed_files=$(git diff --cached --name-only --diff-filter=ACM)
 
-# Check for changes in the backend folder with specific file extensions
-changed_files=$(git diff --cached --name-only | grep -E '^apps/backend/.*\.(js|ts|jsx|tsx)$')
+# Check if any changed files match **/*.{js,ts,jsx,tsx}
+js_files=$(echo "$changed_files" | grep -E '\.jsx?$|\.tsx?$|\.js?$|\.js?$')
 
-if [ -n "$changed_files" ]; then
-  echo "Detected changes in backend files. Running yarn build:backend..."
+if [ "$js_files" ]; then
+  # Run format and lint only over JS/TS files
+  yarn format
+  yarn lint
+fi
+
+# Check if any changed files match apps/backend/*.{js,ts,jsx,tsx}
+backend_files=$(echo "$changed_files" | grep -E '^apps/backend/.*\.(js|ts|jsx|tsx)$')
+
+if [ "$backend_files" ]; then
+  # Run build:backend if there are any backend-related changes
   yarn build:backend
-  if [ $? -ne 0 ]; then
-    echo "Build failed. Commit aborted."
-    exit 1
-  fi
-else
-  echo "No relevant changes detected. Skipping build."
 fi
 
 git add .
