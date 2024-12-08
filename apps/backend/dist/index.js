@@ -2456,5 +2456,5 @@ app.use((0, import_cors.default)(corsOptions));
 app.use("/api", routes_default);
 var PORT = process.env.PORT || 3e3;
 app.listen(PORT, () => {
-  console.log(`Server running on ports ${PORT}`);
+  console.log(`Server running on portasds ${PORT}`);
 });
