@@ -1,0 +1,33 @@
+#!/bin/sh
+
+git add .
+
+# Get the list of changed files
+changed_files=$(git diff --cached --name-only --diff-filter=ACM)
+
+# Check if any changed files match apps/frontend/*.{js,ts,jsx,tsx}
+frontend_files=""
+while IFS= read -r file; do
+  if echo "$file" | grep -Eq '^apps/frontend/.*\.(js|ts|jsx|tsx)$'; then
+    frontend_files="$frontend_files$file"$'\n'
+  fi
+done <<< "$changed_files"
+
+if [ -n "$frontend_files" ]; then
+  # Run lint for frontend files
+  yarn lint --filter=@moudrodne/frontend
+fi
+
+backend_files=""
+while IFS= read -r file; do
+  if echo "$file" | grep -Eq '^apps/backend/.*\.(js|ts|jsx|tsx)$'; then
+    backend_files="$backend_files$file"$'\n'
+  fi
+done <<< "$changed_files"
+
+if [ -n "$backend_files" ]; then
+  yarn lint --filter=@moudrodne/backend
+  yarn build:backend
+fi
+
+git add .

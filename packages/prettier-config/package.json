@@ -1,0 +1,11 @@
+{
+  "name": "@moudrodne/prettier-config",
+  "version": "0.0.1",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "main": "index.js",
+  "devDependencies": {
+    "prettier": "^3.4.2"
+  }
+}

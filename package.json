@@ -1,0 +1,30 @@
+{
+  "name": "moudrodne",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "dev:backend": "turbo dev --filter=@moudrodne/backend",
+    "build:backend": "turbo build --filter=@moudrodne/backend",
+    "dev:frontend": "turbo dev --filter=@moudrodne/frontend",
+    "build:frontend": "turbo build --filter=@moudrodne/frontend",
+    "lint": "turbo lint",
+    "generate-api": "turbo generate-api",
+    "format": "prettier --write \"**/*.{mjs,js,ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "prettier": "^3.2.5",
+    "turbo": "^2.3.3",
+    "typescript": "5.5.4"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "yarn@1.22.19",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "husky": "node ./node_modules/husky/lib/bin.js"
+}

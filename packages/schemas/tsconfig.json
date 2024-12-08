@@ -1,0 +1,6 @@
+{
+  "extends": "@moudrodne/typescript-config/src/base.json",
+  "compilerOptions": {
+    "strict": true
+  }
+}

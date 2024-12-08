@@ -1,0 +1,2 @@
+# due to deployment to vercel which is unable to build Node apps, we have to build locally and push to repo
+!dist

@@ -1,0 +1,13 @@
+{
+  "name": "@moudrodne/types",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "check-types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@moudrodne/typescript-config": "*",
+    "typescript": "^5.7.2"
+  }
+}
