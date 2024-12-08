@@ -1,5 +1,7 @@
 #!/bin/sh
 
+git add .
+
 # Get the list of changed files
 changed_files=$(git diff --cached --name-only --diff-filter=ACM)
 
@@ -13,7 +15,7 @@ done <<< "$changed_files"
 
 if [ -n "$frontend_files" ]; then
   # Run lint for frontend files
-  yarn lint --filter=@moudrodne/frontend >> "$LOG_FILE" 2>&1
+  yarn lint --filter=@moudrodne/frontend
 fi
 
 backend_files=""
@@ -24,8 +26,8 @@ while IFS= read -r file; do
 done <<< "$changed_files"
 
 if [ -n "$backend_files" ]; then
-  yarn lint --filter=@moudrodne/backend >> "$LOG_FILE" 2>&1
-  yarn build:backend >> "$LOG_FILE" 2>&1
+  yarn lint --filter=@moudrodne/backend
+  yarn build:backend
 fi
 
 git add .
