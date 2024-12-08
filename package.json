@@ -4,13 +4,33 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
+    "dev:backend": "turbo dev --filter=@moudrodne/backend",
+    "build:backend": "turbo build --filter=@moudrodne/backend",
+    "dev:frontend": "turbo dev --filter=@moudrodne/frontend",
+    "build:frontend": "turbo build --filter=@moudrodne/frontend",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{mjs,js,ts,tsx,md}\""
   },
   "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
     "prettier": "^3.2.5",
     "turbo": "^2.3.3",
     "typescript": "5.5.4"
+  },
+  "lint-staged": {
+    "apps/**/*.{js,ts,jsx,tsx}": [
+      "eslint --fix"
+    ],
+    "apps/backend/*.{js,ts,jsx,tsx}": [
+      "yarn build:backend"
+    ],
+    "packages/ui/**/*.{js,ts,jsx,tsx}": [
+      "eslint --fix"
+    ],
+    "*.json": [
+      "prettier --write"
+    ]
   },
   "engines": {
     "node": ">=18"
