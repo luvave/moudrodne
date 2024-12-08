@@ -21,7 +21,12 @@ export const App = () => {
 
   return (
     <div>
-      <Button onClick={handleClick}>Test</Button>
+      <Button
+        variant="destructive"
+        onClick={handleClick}
+      >
+        Test
+      </Button>
       <div>{message}</div>
     </div>
   );
