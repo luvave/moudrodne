@@ -25,8 +25,8 @@ export const Layout = () => {
         leftSecondaryComponent={t('layout.footer.description')}
         socialLinksComponent={
           <SocialLinksSection
-            linkedinUrl="https://www.linkedin.com/in/luk%C3%A1%C5%A1-v%C3%A9var-b01533252/"
-            githubUrl="https://github.com/luvave"
+            linkedinUrl={import.meta.env.VITE_LINKEDIN_URL ?? ''}
+            githubUrl={import.meta.env.VITE_GITHUB_URL ?? ''}
           />
         }
         bottomComponent={<p>{t('layout.footer.copyright')}</p>}
