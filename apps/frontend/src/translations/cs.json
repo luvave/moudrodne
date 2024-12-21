@@ -1,0 +1,16 @@
+{
+  "layout": {
+    "logoText": "Moudro Dne",
+    "header": {
+      "login": "Přihlásit",
+      "signup": "Registrovat"
+    },
+    "footer": {
+      "description": "MoudroDne je webová aplikace, která vám ukáže lidové moudro pro každý den!",
+      "copyright": "@ 2025 MoudroDne"
+    }
+  },
+  "home": {
+    "title": "Moudro Dne"
+  }
+}

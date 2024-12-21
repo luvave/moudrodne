@@ -1,5 +1,5 @@
 {
   "extends": "@moudrodne/typescript-config/src/react.json",
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "src/translations/cs.json"],
   "exclude": ["node_modules", "dist"]
 }

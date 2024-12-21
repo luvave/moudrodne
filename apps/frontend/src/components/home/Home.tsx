@@ -1,18 +1,10 @@
-import { Button } from '@moudrodne/ui';
-import { useGetHello } from '../../api/generated/reactQueries/default';
+import { Box, DescriptionText, HeadingText } from '@moudrodne/ui';
 
 export const Home = () => {
-  const { data, refetch } = useGetHello();
-
   return (
-    <div>
-      <Button
-        variant="destructive"
-        onClick={() => refetch()}
-      >
-        Test
-      </Button>
-      <div>{data as unknown as string}</div>
-    </div>
+    <Box variant="column">
+      <HeadingText text={'TODO'} />
+      <DescriptionText text={'TODO'} />
+    </Box>
   );
 };
