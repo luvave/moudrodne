@@ -6,8 +6,8 @@ interface Props {
 
 export const Content = ({ children }: Props) => {
   return (
-    <section className="py-32">
-      <main className="container text-center">{children}</main>
+    <section className="py-6 flex-grow flex">
+      <main className="text-center flex-grow">{children}</main>
     </section>
   );
 };

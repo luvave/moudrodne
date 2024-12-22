@@ -11,7 +11,7 @@ interface Props {
 
 export const Header = ({ rightComponent, centerComponent, mobileExtraComponent, leftComponent }: Props) => {
   return (
-    <section className="py-4">
+    <section className="py-4 bg-secondary/95">
       <header className="w-full">
         <nav className="hidden justify-between lg:flex px-9 pt-2">
           <div className="flex justify-between gap-6">

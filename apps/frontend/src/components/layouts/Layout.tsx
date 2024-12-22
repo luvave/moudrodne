@@ -1,13 +1,14 @@
 import { Outlet } from 'react-router-dom';
-import { Button, Content, Footer, Header, SocialLinksSection } from '@moudrodne/ui';
+import { Button, Content, Footer, Header, LayoutContainer, SocialLinksSection } from '@moudrodne/ui';
 import { MoudroDneLogo } from './layoutComponents/MoudroDneLogo';
 import { useTranslation } from 'react-i18next';
+import backgroundImage from '../../assets/background.png';
 
 export const Layout = () => {
   const { t } = useTranslation();
 
   return (
-    <>
+    <LayoutContainer backgroundImage={backgroundImage}>
       <Header
         leftComponent={<MoudroDneLogo />}
         rightComponent={
@@ -31,6 +32,6 @@ export const Layout = () => {
         }
         bottomComponent={<p>{t('layout.footer.copyright')}</p>}
       />
-    </>
+    </LayoutContainer>
   );
 };

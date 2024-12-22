@@ -10,7 +10,7 @@ interface Props {
 
 export const Footer = ({ leftPrimaryComponent, leftSecondaryComponent, socialLinksComponent, rightComponent, bottomComponent }: Props) => {
   return (
-    <section className="py-4 bg-secondary">
+    <section className="py-4 bg-secondary/95">
       <div className="container mx-auto">
         <footer>
           <div className="flex flex-col items-center justify-between gap-10 text-center lg:flex-row lg:text-left">

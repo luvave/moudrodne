@@ -8,18 +8,27 @@ const boxVariants = cva('mx-auto max-w-screen-lg flex', {
       column: 'flex-col gap-6',
       row: 'flex-row gap-5',
     },
+    align: {
+      center: 'items-center justify-center',
+    },
+    height: {
+      auto: 'h-full',
+      large: 'h-96',
+    },
   },
   defaultVariants: {
     variant: 'row',
+    align: 'center',
+    height: 'auto',
   },
 });
 
 export interface BoxProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof boxVariants> {}
 
-const Box = ({ className, children, variant, ...props }: BoxProps) => {
+const Box = ({ className, children, variant, height, align, ...props }: BoxProps) => {
   return (
     <div
-      className={cn(boxVariants({ variant }), className)}
+      className={cn(boxVariants({ variant, height, align }), className)}
       {...props}
     >
       {children}

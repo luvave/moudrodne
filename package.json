@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
-    "dev": "turbo dev watch",
+    "dev": "turbo watch dev",
     "dev:backend": "turbo dev --filter=@moudrodne/backend",
     "build:backend": "turbo build --filter=@moudrodne/backend",
     "dev:frontend": "turbo dev --filter=@moudrodne/frontend",

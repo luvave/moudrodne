@@ -11,6 +11,7 @@
     }
   },
   "home": {
-    "title": "Moudro Dne"
+    "title": "Moudro Dne",
+    "explanationBtn": "Vysvětlivka"
   }
 }

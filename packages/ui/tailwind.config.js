@@ -1,4 +1,5 @@
 import animatePlugin from 'tailwindcss-animate';
+import { screens } from './src/screens';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -47,6 +48,7 @@ export default {
         sm: 'calc(var(--radius) - 4px)',
       },
     },
+    screens: screens,
   },
   plugins: [animatePlugin],
 };
